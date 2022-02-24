@@ -1,0 +1,43 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '**/README.md'
+
+  pull_request:
+    branches:
+      - 'main'
+    paths-ignore:
+      - '**/README.md'
+
+jobs:
+  build:
+    name: 'Build Project'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Build project
+        run: npm run build
+
+      - name: Zip dist directory
+        run: zip -r dist.zip dist/*
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'dist'
+          path: 'dist.zip'
