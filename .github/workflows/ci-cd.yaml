@@ -12,6 +12,10 @@ on:
     paths-ignore:
       - '**/README.md'
 
+env:
+  # https://typicode.github.io/husky/#/?id=with-env-variables
+  HUSKY: '0'
+
 jobs:
   build:
     name: 'Build Project'

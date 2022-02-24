@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 5050",
@@ -21,6 +22,8 @@
     "@vue/tsconfig": "^0.1.3",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^8.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "prettier": "^2.5.1",
     "typescript": "~4.5.5",
     "vite": "^2.8.4",
