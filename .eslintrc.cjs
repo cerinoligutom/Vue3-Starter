@@ -14,4 +14,12 @@ module.exports = {
     browser: true,
     node: true,
   },
+  overrides: [
+    {
+      files: ['**/*.vue'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+  ],
 };
