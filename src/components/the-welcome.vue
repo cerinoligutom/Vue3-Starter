@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import WelcomeItem from './WelcomeItem.vue';
-import DocumentationIcon from './icons/IconDocumentation.vue';
-import ToolingIcon from './icons/IconTooling.vue';
-import EcosystemIcon from './icons/IconEcosystem.vue';
-import CommunityIcon from './icons/IconCommunity.vue';
-import SupportIcon from './icons/IconSupport.vue';
+import WelcomeItem from './welcome-item.vue';
+import DocumentationIcon from './icons/icon-documentation.vue';
+import ToolingIcon from './icons/icon-tooling.vue';
+import EcosystemIcon from './icons/icon-ecosystem.vue';
+import CommunityIcon from './icons/icon-community.vue';
+import SupportIcon from './icons/icon-support.vue';
 </script>
 
 <template>
