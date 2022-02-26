@@ -11,7 +11,6 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: ({ colors }) => {
-      console.log('colors:', colors);
       return {
         inherit: colors.inherit,
         current: colors.current,
