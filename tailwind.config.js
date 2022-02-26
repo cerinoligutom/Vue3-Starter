@@ -940,5 +940,12 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [],
+  plugins: [
+    // https://tailwindcss.com/docs/typography-plugin
+    require('@tailwindcss/typography'),
+    // https://github.com/tailwindlabs/tailwindcss-aspect-ratio
+    require('@tailwindcss/aspect-ratio'),
+    // https://github.com/tailwindlabs/tailwindcss-forms
+    require('@tailwindcss/forms'),
+  ],
 };
