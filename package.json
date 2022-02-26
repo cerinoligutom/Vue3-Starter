@@ -10,6 +10,8 @@
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "dependencies": {
+    "@vueuse/components": "^7.7.0",
+    "@vueuse/core": "^7.7.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.12"
   },
