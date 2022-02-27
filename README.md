@@ -1,6 +1,27 @@
 # Vue3 Starter
 
-This template should help get you started developing with Vue 3 in Vite.
+A boilerplate for Vue3 + TS + Vite SPAs.
+
+## Features
+
+- Vue3 + Vite + TypeScript
+- Vue Router
+- VueUse
+- TailwindCSS v3 w/ Tailwind Config Viewer
+- Form Validation w/ Vuelidate
+- Icons w/ Iconify
+- Hooks w/ Husky
+- ESLint + Prettier
+- Group by Feature folder structure
+
+## Examples Included
+
+- Login Form
+- Simple Base Components
+- Composables
+- Layouts
+- Theme Switcher
+- Router Nav Guard
 
 ## Recommended IDE Setup
 
@@ -44,3 +65,13 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### View Tailwind Config
+
+```sh
+npm run tailwind-config-viewer
+```
+
+## Contributing
+
+If something is unclear, confusing, or needs to be refactored, please let me know. Pull requests are always welcome but do consider the opinionated nature of this project. Please open an issue before submitting a pull request.
