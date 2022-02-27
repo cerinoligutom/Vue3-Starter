@@ -1,0 +1,71 @@
+/* Abstract color Template. Replace [abstraction] with the color abstraction name.
+--color-[abstraction]: 255, 255, 255;
+--color-on-[abstraction]: 255, 255, 255;
+--color-[abstraction]-light: 255, 255, 255;
+--color-on-[abstraction]-light: 255, 255, 255;
+--color-[abstraction]-dark: 255, 255, 255;
+--color-on-[abstraction]-dark: 255, 255, 255;
+*/
+
+@layer base {
+  :root {
+    /* Brand Main */
+    --color-brand-main: 6, 214, 160;
+    --color-on-brand-main: 255, 255, 255;
+
+    --color-brand-main-light: 36, 249, 193;
+    --color-on-brand-main-light: 0, 0, 0;
+
+    --color-brand-main-dark: 4, 159, 118;
+    --color-on-brand-main-dark: 255, 255, 255;
+
+    /* Brand Accent */
+    --color-brand-accent: 84, 198, 235;
+    --color-on-brand-accent: 0, 0, 0;
+
+    --color-brand-accent-light: 145, 218, 242;
+    --color-on-brand-accent-light: 0, 0, 0;
+
+    --color-brand-accent-dark: 26, 171, 219;
+    --color-on-brand-accent-dark: 255, 255, 255;
+  }
+
+  /* Form Inputs */
+  [type='text'],
+  [type='email'],
+  [type='url'],
+  [type='password'],
+  [type='number'],
+  [type='date'],
+  [type='datetime-local'],
+  [type='month'],
+  [type='search'],
+  [type='tel'],
+  [type='time'],
+  [type='week'],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full rounded shadow-sm;
+    @apply bg-surface;
+    @apply text-on-surface;
+    @apply border-gray-300;
+    @apply focus:border-brand-main focus:ring focus:ring-brand-main/50;
+
+    &:disabled {
+      @apply bg-background text-on-background;
+    }
+  }
+  [type='checkbox'],
+  [type='radio'] {
+    @apply rounded;
+    @apply bg-surface;
+    @apply text-brand-main;
+    @apply border-gray-300;
+    @apply focus:border-brand-main focus:ring focus:ring-brand-main/50 focus:ring-offset-transparent;
+
+    &:disabled {
+      @apply bg-background text-on-background;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@layer base {
+  .dark-theme {
+    --color-surface: 30, 41, 59;
+    --color-on-surface: 117, 196, 234;
+
+    --color-background: 15, 23, 42;
+    --color-on-background: 146, 160, 182;
+  }
+}

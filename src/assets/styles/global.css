@@ -1,5 +1,32 @@
-html,
-body,
-#app {
-  height: 100%;
+@import './tailwind.css';
+@import './themes/common.css';
+@import './themes/dark.css';
+@import './themes/light.css';
+
+@layer base {
+  /* Roots */
+  html,
+  body,
+  #app {
+    @apply h-full overflow-auto;
+  }
+
+  /* Headers */
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply text-base;
+  }
 }

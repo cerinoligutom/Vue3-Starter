@@ -1,6 +1,7 @@
 <template>
-  <div class="prose">
-    <h1 class="text-blue-500">Default Layout</h1>
-    <router-view />
+  <div class="h-full">
+    <main class="h-full overflow-auto p-spacer">
+      <router-view />
+    </main>
   </div>
 </template>

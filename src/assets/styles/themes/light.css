@@ -1,0 +1,9 @@
+@layer base {
+  .light-theme {
+    --color-surface: 255, 255, 255;
+    --color-on-surface: 110, 120, 134;
+
+    --color-background: 249, 250, 251;
+    --color-on-background: 107, 114, 128;
+  }
+}

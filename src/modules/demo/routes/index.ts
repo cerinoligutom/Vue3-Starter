@@ -8,6 +8,7 @@ const routes: RouteRecordRaw[] = [
     name: RouteName.DEMO,
     meta: {
       layout: LayoutName.DEFAULT_LAYOUT,
+      requiresAuth: true,
     },
     component: () => import('../views/demo-page.vue'),
   },

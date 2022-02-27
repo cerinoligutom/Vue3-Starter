@@ -1,3 +1,42 @@
+/**
+ *
+ * @param {string} variableName The CSS variable name.
+ */
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    return opacityValue ? `rgba(var(${variableName}), ${opacityValue})` : `rgb(var(${variableName}))`;
+  };
+}
+
+/**
+ * @param {string} colorName The CSS variable color name.
+ * @param {Object} opts
+ * @param {boolean} opts.light Include light colors.
+ * @param {boolean} opts.dark Include dark colors.
+ */
+function useColor(colorName, { light = true, dark = true } = {}) {
+  const colorVariants = {
+    [colorName]: withOpacity(`--color-${colorName}`),
+    [`on-${colorName}`]: withOpacity(`--color-on-${colorName}`),
+  };
+
+  const lightVariants = {
+    [`${colorName}-light`]: withOpacity(`--color-${colorName}-light`),
+    [`on-${colorName}-light`]: withOpacity(`--color-on-${colorName}-light`),
+  };
+
+  const darkVariants = {
+    [`${colorName}-dark`]: withOpacity(`--color-${colorName}-dark`),
+    [`on-${colorName}-dark`]: withOpacity(`--color-on-${colorName}-dark`),
+  };
+
+  return {
+    ...colorVariants,
+    ...(light ? lightVariants : {}),
+    ...(dark ? darkVariants : {}),
+  };
+}
+
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   presets: [],
@@ -15,6 +54,12 @@ module.exports = {
         inherit: colors.inherit,
         current: colors.current,
         transparent: colors.transparent,
+
+        ...useColor('brand-main'),
+        ...useColor('brand-accent'),
+        ...useColor('surface', { light: false, dark: false }),
+        ...useColor('background', { light: false, dark: false }),
+
         black: colors.black,
         white: colors.white,
         slate: colors.slate,
@@ -22,6 +67,7 @@ module.exports = {
         zinc: colors.zinc,
         neutral: colors.neutral,
         stone: colors.stone,
+
         red: colors.red,
         orange: colors.orange,
         amber: colors.amber,
@@ -70,6 +116,7 @@ module.exports = {
       '7xl': '80rem',
     },
     spacing: {
+      spacer: '1rem',
       px: '1px',
       0: '0px',
       0.5: '0.125rem',
@@ -940,8 +987,6 @@ module.exports = {
     'disabled',
   ],
   plugins: [
-    // https://tailwindcss.com/docs/typography-plugin
-    require('@tailwindcss/typography'),
     // https://github.com/tailwindlabs/tailwindcss-aspect-ratio
     require('@tailwindcss/aspect-ratio'),
     // https://github.com/tailwindlabs/tailwindcss-forms

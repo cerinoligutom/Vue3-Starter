@@ -5,10 +5,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { LayoutName } from '@/shared/constants/layout-name';
+import { LayoutName } from './shared/constants/layout-name';
 
 const route = useRoute();
-const layout = computed(() => route.meta.layout || LayoutName.DEFAULT_LAYOUT);
-</script>
+const layout = computed(() => {
+  if (route.meta.layout) {
+    return route.meta.layout;
+  }
 
-<style lang="postcss" scoped></style>
+  return route.path === '/' ? LayoutName.NO_LAYOUT : LayoutName.DEFAULT_LAYOUT;
+});
+</script>
