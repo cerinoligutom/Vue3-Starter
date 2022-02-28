@@ -28,6 +28,7 @@ import { useAuth } from '../composables/use-auth';
 import type { ValidationArgs } from '@vuelidate/core';
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength } from '@vuelidate/validators';
+import { useAppStorage } from '@/shared/composables/use-app-storage';
 
 interface ILoginForm {
   email: string;
@@ -38,11 +39,12 @@ interface ILoginForm {
 const { login } = useAuth();
 const router = useRouter();
 const isSubmitting = ref(false);
+const emailStorage = useAppStorage<string>('email', '', { prefix: 'remember:' });
 
 const form = reactive<ILoginForm>({
-  email: '',
+  email: emailStorage.value,
   password: '',
-  remember: false,
+  remember: !!emailStorage.value,
 });
 
 const rules: ValidationArgs = {
@@ -63,6 +65,8 @@ async function tryLogin() {
 
   try {
     await login(form.email, form.password);
+
+    emailStorage.value = form.remember ? form.email : '';
 
     router.push({ name: RouteName.DEMO });
   } catch {

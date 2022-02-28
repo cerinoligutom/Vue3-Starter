@@ -1,14 +1,13 @@
-import { useAppStorage, useClearAppStorage } from '@/shared/composables/use-app-storage';
+import { useClearAppStorage } from '@/shared/composables/use-app-storage';
 import { useCookies } from '@vueuse/integrations/useCookies';
 
 export function useAuth() {
-  const cookieName = 'isAuthenticated';
+  const cookieName = 'email';
   const cookies = useCookies([]);
-  const emailStorage = useAppStorage<string | null>('email', null);
   const { clear } = useClearAppStorage();
 
   function isAuthenticated() {
-    return cookies.get(cookieName) === true;
+    return cookies.get(cookieName) !== undefined;
   }
 
   async function login(email: string, password: string) {
@@ -16,11 +15,9 @@ export function useAuth() {
     // Do auth request with your API
     console.info({ email, password });
 
-    cookies.set(cookieName, true, {
+    cookies.set(cookieName, email, {
       maxAge: 60 * 60 * 24 * 7, // 1 week,
     });
-
-    emailStorage.value = email;
 
     // Simulate 2s delay
     return new Promise((resolve) => {

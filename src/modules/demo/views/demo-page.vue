@@ -24,12 +24,14 @@ import environment from '@/config/environment';
 import { useAuth } from '@/modules/auth/composables/use-auth';
 import { BaseButton } from '@/shared/components/base';
 import ThemeSwitcher from '@/shared/components/theme-switcher.vue';
-import { useAppStorage } from '@/shared/composables/use-app-storage';
+import { useCookies } from '@vueuse/integrations/useCookies';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const email = useAppStorage<string | null>('email', null);
 const { logout } = useAuth();
+const cookies = useCookies([]);
+
+const email = cookies.get('email');
 
 async function tryLogout() {
   await logout();
@@ -37,5 +39,3 @@ async function tryLogout() {
   router.push('/');
 }
 </script>
-
-<style lang="postcss" scoped></style>

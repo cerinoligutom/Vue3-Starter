@@ -1,24 +1,28 @@
-import { useStorage, type MaybeRef } from '@vueuse/core';
+import { useStorage, type MaybeRef, type StorageLike, type StorageOptions } from '@vueuse/core';
 
-const PREFIX = 'v-app:';
+const DEFAULT_PREFIX = 'v-app:';
 
-export function useAppStorage<T = unknown>(key: string, value: MaybeRef<T>) {
-  return useStorage<T>(`${PREFIX}${key}`, value);
+export function useAppStorage<T = unknown>(
+  key: string,
+  value: MaybeRef<T>,
+  options?: StorageOptions<T> & { storage?: StorageLike; prefix?: string },
+) {
+  return useStorage<T>(`${options?.prefix ?? DEFAULT_PREFIX}${key}`, value, options?.storage ?? localStorage, options);
 }
 
 export function useClearAppStorage() {
-  function clear() {
+  function clear(prefix = DEFAULT_PREFIX) {
     const keys = Object.keys(window.localStorage);
 
-    const keysToRemove = keys.filter((key) => key.startsWith(`${PREFIX}`));
+    const keysToRemove = keys.filter((key) => key.startsWith(`${prefix}`));
 
     for (const key of keysToRemove) {
       window.localStorage.removeItem(key);
     }
   }
 
-  function removeItem(key?: string) {
-    window.localStorage.removeItem(`${PREFIX}${key}`);
+  function removeItem(key?: string, prefix = DEFAULT_PREFIX) {
+    window.localStorage.removeItem(`${prefix}${key}`);
   }
 
   return { clear, removeItem };
