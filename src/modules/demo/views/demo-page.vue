@@ -1,10 +1,16 @@
 <template>
   <div class="flex items-center justify-center h-full">
-    <div class="flex flex-col rounded shadow-lg bg-surface p-spacer">
-      <h1 class="mb-spacer">
+    <div class="grid rounded shadow-lg gap-y-spacer bg-surface p-spacer">
+      <h1>
         Welcome,
         <span class="underline text-brand-accent">{{ email }}</span>
       </h1>
+
+      <div class="flex flex-col rounded bg-background text-on-background p-spacer">
+        <div>Environment:</div>
+        <pre>{{ environment }}</pre>
+      </div>
+
       <div class="flex flex-row justify-between">
         <ThemeSwitcher />
         <BaseButton @click="tryLogout()">Logout</BaseButton>
@@ -14,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+import environment from '@/config/environment';
 import { useAuth } from '@/modules/auth/composables/use-auth';
 import { BaseButton } from '@/shared/components/base';
 import ThemeSwitcher from '@/shared/components/theme-switcher.vue';
