@@ -22,6 +22,7 @@ A boilerplate for Vue3 + TS + Vite SPAs.
 - Layouts
 - Theme Switcher
 - Router Nav Guard
+- Environment Variables
 
 ## Recommended IDE Setup
 
