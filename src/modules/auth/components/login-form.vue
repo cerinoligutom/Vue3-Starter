@@ -6,12 +6,13 @@
       <BaseInput v-model="form.email" label="Email" type="text" :error="v$.email.$errors[0]?.$message" />
       <BaseInput v-model="form.password" label="Password" type="password" :error="v$.password.$errors[0]?.$message" />
 
-      <BaseCheckbox v-model="form.remember" label="Remember me" />
+      <BaseCheckbox v-model="form.remember" :label="$t('remember-me')" />
 
-      <BaseButton :disabled="isSubmitting || v$.$invalid" type="submit">Login</BaseButton>
+      <BaseButton :disabled="isSubmitting || v$.$invalid" type="submit">{{ $t('login') }}</BaseButton>
     </form>
 
     <div class="flex items-center justify-end">
+      <LanguageSwitcher class="mr-2" />
       <ThemeSwitcher />
     </div>
   </div>
@@ -20,6 +21,7 @@
 <script lang="ts" setup>
 import { BaseButton, BaseCheckbox, BaseInput } from '@/shared/components/base';
 import ThemeSwitcher from '@/shared/components/theme-switcher.vue';
+import LanguageSwitcher from '@/shared/components/language-switcher.vue';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { RouteName } from '@/shared/constants/route-name';
@@ -74,3 +76,11 @@ async function tryLogin() {
   }
 }
 </script>
+
+<fluent locale="en">
+remember-me = Remember me
+</fluent>
+
+<fluent locale="fil">
+remember-me = Tandaan ako
+</fluent>
