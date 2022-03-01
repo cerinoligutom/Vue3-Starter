@@ -13,6 +13,7 @@ A boilerplate for Vue3 + TS + Vite SPAs.
 - Hooks w/ Husky
 - ESLint + Prettier
 - Group by Feature folder structure
+- Localization w/ [Fluent](https://projectfluent.org/)
 
 ## Examples Included
 
@@ -23,6 +24,7 @@ A boilerplate for Vue3 + TS + Vite SPAs.
 - Theme Switcher
 - Router Nav Guard
 - Environment Variables
+- Language Switcher
 
 ## Recommended IDE Setup
 
