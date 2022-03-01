@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center h-full">
     <div class="grid rounded shadow-lg gap-y-spacer bg-surface p-spacer">
       <h1>
-        Welcome,
+        {{ $t('hello') }},
         <span class="underline text-brand-accent">{{ email }}</span>
       </h1>
 
@@ -11,9 +11,12 @@
         <pre>{{ environment }}</pre>
       </div>
 
-      <div class="flex flex-row justify-between">
-        <ThemeSwitcher />
-        <BaseButton @click="tryLogout()">Logout</BaseButton>
+      <div class="flex flex-row items-center justify-between">
+        <div class="flex flex-row">
+          <LanguageSwitcher class="mr-2" />
+          <ThemeSwitcher class="mr-2" />
+        </div>
+        <BaseButton @click="tryLogout()">{{ $t('logout') }}</BaseButton>
       </div>
     </div>
   </div>
@@ -24,6 +27,7 @@ import environment from '@/config/environment';
 import { useAuth } from '@/modules/auth/composables/use-auth';
 import { BaseButton } from '@/shared/components/base';
 import ThemeSwitcher from '@/shared/components/theme-switcher.vue';
+import LanguageSwitcher from '@/shared/components/language-switcher.vue';
 import { useCookies } from '@vueuse/integrations/useCookies';
 import { useRouter } from 'vue-router';
 
