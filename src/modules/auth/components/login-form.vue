@@ -1,6 +1,6 @@
 <template>
-  <div class="grid rounded-lg shadow-lg w-96 gap-y-spacer bg-surface text-on-surface p-spacer">
-    <h2 class="text-2xl text-center text-brand-main">Vue3 Starter</h2>
+  <div class="grid w-96 gap-y-spacer rounded-lg bg-surface p-spacer text-on-surface shadow-lg">
+    <h2 class="text-center text-2xl text-brand-main">Vue3 Starter</h2>
 
     <form class="grid gap-y-spacer" @submit.prevent="tryLogin()">
       <BaseInput v-model="form.email" label="Email" type="text" :error="v$.email.$errors[0]?.$message" />

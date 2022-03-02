@@ -22,7 +22,7 @@ const toFilipino = () => {
 
 <style lang="postcss" scoped>
 button {
-  @apply border border-brand-main rounded px-spacer;
+  @apply rounded border border-brand-main px-spacer;
   @apply hover:bg-brand-main hover:text-on-brand-main;
 }
 </style>

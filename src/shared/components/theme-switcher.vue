@@ -1,5 +1,5 @@
 <template>
-  <button class="text-2xl bg-transparent text-brand-main" @click="theme = theme === 'dark' ? 'light' : 'dark'">
+  <button class="bg-transparent text-2xl text-brand-main" @click="theme = theme === 'dark' ? 'light' : 'dark'">
     <Icon :icon="theme === 'dark' ? sunIcon : moonIcon" />
   </button>
 </template>

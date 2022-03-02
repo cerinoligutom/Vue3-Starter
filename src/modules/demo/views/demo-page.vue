@@ -1,12 +1,12 @@
 <template>
-  <div class="flex items-center justify-center h-full">
-    <div class="grid rounded shadow-lg gap-y-spacer bg-surface p-spacer">
+  <div class="flex h-full items-center justify-center">
+    <div class="grid gap-y-spacer rounded bg-surface p-spacer shadow-lg">
       <h1>
         {{ $t('hello') }},
-        <span class="underline text-brand-accent">{{ email }}</span>
+        <span class="text-brand-accent underline">{{ email }}</span>
       </h1>
 
-      <div class="flex flex-col rounded bg-background text-on-background p-spacer">
+      <div class="flex flex-col rounded bg-background p-spacer text-on-background">
         <div>Environment:</div>
         <pre>{{ environment }}</pre>
       </div>
