@@ -49,7 +49,7 @@ const form = reactive<ILoginForm>({
   remember: !!emailStorage.value,
 });
 
-const rules: ValidationArgs = {
+const rules = {
   email: { required, email },
   password: { required, minLength: minLength(8) },
 };
