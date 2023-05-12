@@ -26,17 +26,9 @@ interface IProps {
 }
 const props = defineProps<IProps>();
 
+const emit = defineEmits<IEmits>();
 interface IEmits {
   (e: 'update:modelValue', modelValue: string): void;
 }
-const emit = defineEmits<IEmits>();
-
 const modelValue = useVModel(props, 'modelValue', emit);
 </script>
-
-<style lang="postcss" scoped>
-.has-error {
-  @apply border-red-500;
-  @apply focus:ring focus:ring-red-400;
-}
-</style>

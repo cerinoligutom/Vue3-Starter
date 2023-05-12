@@ -6,5 +6,8 @@
   "semi": true,
   "trailingComma": "all",
   "htmlWhitespaceSensitivity": "ignore",
-  "useTabs": false
+  "useTabs": false,
+
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwind": {}
 }

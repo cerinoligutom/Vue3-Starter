@@ -25,11 +25,10 @@ interface IProps {
 }
 const props = defineProps<IProps>();
 
+const emit = defineEmits<IEmits>();
 interface IEmits {
   (e: 'update:modelValue', modelValue: string): void;
 }
-const emit = defineEmits<IEmits>();
-
 const modelValue = useVModel(props, 'modelValue', emit);
 </script>
 

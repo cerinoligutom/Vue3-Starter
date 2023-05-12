@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
+
+@layer components {
+  .has-error {
+    @apply border-red-500;
+    @apply focus:ring focus:ring-red-400;
+  }
+}
+
 @tailwind utilities;
