@@ -31,12 +31,6 @@ module.exports = {
         order: ['template', 'script', 'style'],
       },
     ],
-    'vue/define-macros-order': [
-      'warn',
-      {
-        order: ['defineProps', 'defineEmits'],
-      },
-    ],
   },
   overrides: [
     {
