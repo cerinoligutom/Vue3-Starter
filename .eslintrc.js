@@ -18,19 +18,6 @@ module.exports = {
   },
   rules: {
     'tailwindcss/no-custom-classname': 'error',
-    'vue/component-api-style': ['error', ['script-setup', 'composition']],
-    'vue/block-lang': [
-      'error',
-      {
-        script: { lang: 'ts' },
-      },
-    ],
-    'vue/component-tags-order': [
-      'error',
-      {
-        order: ['template', 'script', 'style'],
-      },
-    ],
   },
   overrides: [
     {
@@ -38,6 +25,20 @@ module.exports = {
       parser: 'vue-eslint-parser',
       rules: {
         '@typescript-eslint/no-unused-vars': 'off',
+
+        'vue/component-api-style': ['error', ['script-setup', 'composition']],
+        'vue/block-lang': [
+          'error',
+          {
+            script: { lang: 'ts' },
+          },
+        ],
+        'vue/component-tags-order': [
+          'error',
+          {
+            order: ['template', 'script', 'style'],
+          },
+        ],
       },
     },
   ],
