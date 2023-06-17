@@ -27,7 +27,6 @@ import { useRouter } from 'vue-router';
 import { RouteName } from '@/shared/constants/route-name';
 import { useAuth } from '../composables/use-auth';
 
-import type { ValidationArgs } from '@vuelidate/core';
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength } from '@vuelidate/validators';
 import { useAppStorage } from '@/shared/composables/use-app-storage';

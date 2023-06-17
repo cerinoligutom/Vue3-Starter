@@ -1,12 +1,12 @@
-import { useStorage, type MaybeComputedRef, type StorageLike, type UseStorageOptions } from '@vueuse/core';
+import { useStorage, type MaybeRefOrGetter, type StorageLike, type UseStorageOptions, type RemovableRef } from '@vueuse/core';
 
 const DEFAULT_PREFIX = 'v-app:';
 
 export function useAppStorage<T = unknown>(
   key: string,
-  value: MaybeComputedRef<T>,
+  value: MaybeRefOrGetter<T>,
   options?: UseStorageOptions<T> & { storage?: StorageLike; prefix?: string },
-) {
+): RemovableRef<T> {
   return useStorage<T>(`${options?.prefix ?? DEFAULT_PREFIX}${key}`, value, options?.storage ?? localStorage, options);
 }
 
